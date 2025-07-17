@@ -1,0 +1,102 @@
+{
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "solutions": "Solutions",
+      "contact": "Contact"
+    },
+    "footer": {
+        "quickLinks": "Quick Links",
+        "contactUs": "Contact Us",
+        "home": "Home",
+        "about": "About Us",
+        "solutions": "Solutions",
+        "contact": "Contact",
+        "phone": "Phone: 00966 555439642",
+        "email": "Email: info@artoflang.net",
+        "rights": "All rights reserved.",
+        "aboutText": "Empowering individuals and organizations with world-class training and solutions for a brighter future."
+      },
+
+      "aboutSection": {
+  "title": "About AOL",
+  "para1": "AOL is a premier training institute based in Riyadh, Saudi Arabia, dedicated to empowering individuals and organizations with the knowledge and skills needed to excel in today's dynamic business environment.",
+  "para2": "With a comprehensive range of courses in management, finance, HR, English language education, and more, we are committed to fostering continuous learning and development."
+},
+
+"visionSection": {
+  "title": "Vision & Mission",
+  "visionTitle": "Vision",
+  "visionText": "To be the leading catalyst for professional and personal growth in Saudi Arabia, playing a role in the Vision 2023 and specifically in the Human Capability Development Program by equipping individuals and organizations with the capabilities to thrive in a rapidly evolving global landscape.",
+  "missionTitle": "Mission",
+  "missionText1": "Provide high-quality solutions and customized programs according to individual and institutional needs.",
+  "missionText2": "We strive to cultivate a culture of excellence, innovation, and lifelong learning, enabling our clients to achieve their fullest potential and contribute effectively to the growth and prosperity of Saudi Arabia."
+},
+
+"valuesSection": {
+  "title": "Our Values",
+  "excellenceTitle": "Excellence",
+  "excellenceText": "We are committed to delivering excellence in everything we do, from the quality of our courses to the caliber of our instructors.",
+  "innovationTitle": "Innovation",
+  "innovationText": "We embrace innovation and creativity to continually enhance our programs and stay ahead of industry trends.",
+  "empowermentTitle": "Empowerment",
+  "empowermentText": "We believe in empowering individuals and organizations with the knowledge, skills, and confidence to succeed.",
+  "collaborationTitle": "Collaboration",
+  "collaborationText": "We foster a culture of collaboration and teamwork, leveraging the collective expertise of our staff, partners, and clients to achieve mutual success."
+},
+
+
+"solutionsSection": {
+  "title": "Our Solutions",
+  "generalTitle": "General Solutions",
+  "generalIntro": "At AOL, we provide a range of high-level training solutions tailored to meet diverse needs and objectives, including:",
+  "general1Title": "General Training Programs",
+  "general1Text": "Our general training programs encompass a wide array of topics, catering to individuals and organizations seeking foundational knowledge and skills development across various disciplines.",
+  "general2Title": "Contractual Training Solutions",
+  "general2Text": "We offer contractual training services tailored to the specific requirements of organizations, delivering customized training solutions designed to address their unique challenges and opportunities.",
+  "general3Title": "Specialized Workshops",
+  "general3Text": "Our specialized workshops focus on niche areas within management, finance, HR, and other domains, providing in-depth insights and practical tools to enhance professional expertise and performance.",
+  "general4Title": "Executive Education",
+  "general4Text": "Our executive education programs are designed for senior executives and business leaders, offering advanced learning experiences and strategic insights to drive organizational growth and innovation.",
+  "general5Title": "Language Proficiency Courses",
+  "general5Text": "As language proficiency is crucial for success in today's globalized world, we provide comprehensive English language education programs for individuals and corporate clients, enabling effective communication and collaboration on a global scale.",
+  "trainingTitle": "Training Solutions",
+  "trainingIntro": "AOL offers specialized training across a variety of critical domains, designed to enhance skills and performance in both the public and private sectors. Our programs cover:",
+  "training1": "Leadership And Management",
+  "training2": "Self-Development",
+  "training3": "Executive Secretary",
+  "training4": "Media",
+  "training5": "Organizing Conferences and Events",
+  "training6": "Media and Advertising Campaigns",
+  "training7": "Human Resources",
+  "training8": "Information Technology",
+  "training9": "Public Relations"
+},
+
+"scholarshipSection": {
+  "title": "External Scholarship",
+  "para1": "AOL is considered one of the institutes specialized in securing language and course acceptance and university admission.",
+  "para2": "We facilitate acceptance of institutes all over the world and study abroad opportunities thanks to our partnerships with the best universities, international educational institutions, institutes, and language schools.",
+  "para3": "Our experience in dealing with institutes, universities, and educational institutions is based on direct experience — securing admission, housing, insurance, and other matters that concern the student and make their educational journey smoother and more successful."
+},
+
+"customizedSection": {
+  "title": "Customized Programs",
+  "para1": "Designing programs according to the client’s needs, AOL provides its services to clients in the government sector, the private sector, and individuals wishing to study the English language and train outside the Kingdom of Saudi Arabia."
+},
+
+"contactSection": {
+  "title": "Contact Us",
+  "phoneTitle": "Phone",
+  "emailTitle": "Email",
+  "websiteTitle": "Website"
+}
+
+
+
+
+
+
+
+  }
+  

@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ✅ Optional: if you want to force direction per language */
+html[dir="rtl"] {
+  direction: rtl;
+}
+html[dir="ltr"] {
+  direction: ltr;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -1,246 +1,546 @@
 import React from "react";
+import { motion } from "framer-motion";
+import heroImage from "../assets/pattern1.png";
+import aboutImage from "../assets/about-illustration.png";
+import { useTranslation } from "react-i18next"; // ✅ ADD THIS
+import icon1 from "../assets/icon1.png";
+import icon2 from "../assets/icon2.png";
+import icon3 from "../assets/icon3.png";
+import icon4 from "../assets/icon4.png";
+import icon5 from "../assets/icon5.png";
+import scholarshipImage from "../assets/scholarship-illustration.png";
+import customizedImage from "../assets/customized-illustration.png"
 
 export default function Home() {
+
+  const { t, i18n } = useTranslation(); // ✅ ADD THIS
+  const isArabic = i18n.language === "ar"; // ✅ ADD THIS
   return (
     <div className="pt-20">
+     {/* ✅ Hero Section */}
+<section
+  id="hero"
+  className="relative w-full bg-gray-100 flex justify-center items-center"
+  style={{ height: "auto" }}
+>
+  <motion.img
+    src={heroImage}
+    alt="AOL Hero"
+    className="w-full h-auto max-h-screen md:max-h-[90vh] object-contain md:object-cover"
+    initial={{ opacity: 0, scale: 1.02 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1 }}
+  />
+</section>
 
-{/* Hero Section */}
-<section className="bg-primary text-white text-center py-20" id="hero">
-<img src="/logo.png" alt="AOL Logo" className="mx-auto mb-6 h-24" />
-  <h1 className="text-4xl font-bold mb-4">Art of Language Training Institute</h1>
-  <p className="text-lg max-w-2xl mx-auto mb-6">
-    Empowering individuals and organizations with the knowledge and skills needed to excel in today's dynamic business environment.
-  </p>
-  <a
-    href="#about"
-    className="bg-accent text-dark px-6 py-2 rounded hover:opacity-90 font-semibold transition"
+
+
+      {/* ✅ About Section */}
+      <section
+  id="about"
+  className="relative bg-white py-20 px-6 md:px-16 overflow-hidden"
+>
+  {/* Decorative Background */}
+  <div className="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl"></div>
+
+  <div
+    className={`relative z-10 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto ${
+      isArabic ? "md:flex-row-reverse" : ""
+    }`}
   >
-    Explore More
-  </a>
+    {/* About Image */}
+    <motion.img
+      src={aboutImage}
+      alt="About AOL"
+      className="w-full md:w-1/2 rounded-lg shadow-lg"
+      initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    />
+
+    {/* About Text */}
+    <motion.div
+      className={`md:w-1/2 ${isArabic ? "text-right" : "text-left"}`}
+      initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+        {t("aboutSection.title")}
+      </h2>
+      <p className="text-gray-700 text-lg leading-relaxed mb-4">
+        {t("aboutSection.para1")}
+      </p>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        {t("aboutSection.para2")}
+      </p>
+    </motion.div>
+  </div>
 </section>
 
+<section
+  id="vision"
+  className="relative bg-gray-50 py-20 px-6 md:px-16 overflow-hidden"
+>
+  {/* Decorative Background Shape */}
+  <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary opacity-5 rounded-full blur-3xl"></div>
 
-{/* Section 1: About AOL */}
-<section id="about" className="bg-white py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-6">About AOL</h2>
-  <p className="text-lg text-gray-700 mb-4">
-    AOL is a premier training institute based in Riyadh, Kingdom of Saudi Arabia, dedicated to empowering individuals and organizations with the knowledge and skills needed to excel in today's dynamic business environment.
-  </p>
-  <p className="text-lg text-gray-700">
-    With a comprehensive range of courses spanning management, finance, HR, English language education and other general topics, we are committed to fostering continuous learning and development.
-  </p>
+  <div
+    className={`relative z-10 max-w-5xl mx-auto ${
+      isArabic ? "text-right" : "text-left"
+    }`}
+  >
+    <motion.h2
+      className="text-3xl md:text-4xl font-bold text-primary mb-10"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {t("visionSection.title")}
+    </motion.h2>
+
+    {/* ✅ Vision */}
+    <motion.div
+      initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="mb-8"
+    >
+      <h3 className="text-2xl font-semibold text-dark mb-3">
+        {t("visionSection.visionTitle")}
+      </h3>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        {t("visionSection.visionText")}
+      </p>
+    </motion.div>
+
+    {/* ✅ Mission */}
+    <motion.div
+      initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
+      <h3 className="text-2xl font-semibold text-dark mb-3">
+        {t("visionSection.missionTitle")}
+      </h3>
+      <p className="text-gray-700 text-lg leading-relaxed mb-4">
+        {t("visionSection.missionText1")}
+      </p>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        {t("visionSection.missionText2")}
+      </p>
+    </motion.div>
+  </div>
 </section>
 
+<section
+  id="values"
+  className="relative bg-[#f0f6fb] py-20 px-6 md:px-16 overflow-hidden"
 
-{/* Section 2: Vision and Mission */}
-<section id="vision" className="bg-light py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-8">Vision & Mission</h2>
+>
+  {/* Decorative Background */}
+  <div className="absolute top-10 right-0 w-72 h-72 bg-primary opacity-5 rounded-full blur-3xl"></div>
 
-  <h3 className="text-2xl font-semibold text-dark mb-2">Vision</h3>
-  <p className="text-lg text-gray-700 mb-6">
-    To be the leading catalyst for professional and personal growth in Saudi Arabia, playing a role in the Vision 2023 and specifically in the Human Capability Development Program by equipping individuals and organizations with the capabilities to thrive in a rapidly evolving global landscape.
-  </p>
+  <div
+    className={`relative z-10 max-w-6xl mx-auto ${
+      isArabic ? "text-right" : "text-left"
+    }`}
+  >
+    <motion.h2
+      className={`text-3xl md:text-4xl font-bold text-primary mb-12 ${
+        isArabic ? "text-center md:text-right" : "text-center md:text-left"
+      }`}
+      
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {t("valuesSection.title")}
+    </motion.h2>
 
-  <h3 className="text-2xl font-semibold text-dark mb-2">Mission</h3>
-  <p className="text-lg text-gray-700">
-    Provide high-quality solutions and customized programs according to individual and institutional needs.
-  </p>
-  <p className="text-lg text-gray-700 mt-4">
-    We strive to cultivate a culture of excellence, innovation, and lifelong learning, enabling our clients to achieve their fullest potential and contribute effectively to the growth and prosperity of Saudi Arabia.
-  </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Value 1 */}
+      <motion.div
+        initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300"
+      >
+        <h3 className="text-xl font-semibold text-dark mb-2">
+          {t("valuesSection.excellenceTitle")}
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          {t("valuesSection.excellenceText")}
+        </p>
+      </motion.div>
+
+      {/* Value 2 */}
+      <motion.div
+        initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300"
+      >
+        <h3 className="text-xl font-semibold text-dark mb-2">
+          {t("valuesSection.innovationTitle")}
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          {t("valuesSection.innovationText")}
+        </p>
+      </motion.div>
+
+      {/* Value 3 */}
+      <motion.div
+        initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300"
+      >
+        <h3 className="text-xl font-semibold text-dark mb-2">
+          {t("valuesSection.empowermentTitle")}
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          {t("valuesSection.empowermentText")}
+        </p>
+      </motion.div>
+
+      {/* Value 4 */}
+      <motion.div
+        initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition-all duration-300"
+      >
+        <h3 className="text-xl font-semibold text-dark mb-2">
+          {t("valuesSection.collaborationTitle")}
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          {t("valuesSection.collaborationText")}
+        </p>
+      </motion.div>
+    </div>
+  </div>
 </section>
 
+<section
+  id="solutions"
+  className="relative bg-[#f8fbff] py-20 px-6 md:px-16 overflow-hidden"
+>
+  {/* Decorative Background */}
+  <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary opacity-10 rounded-full blur-3xl"></div>
 
-{/* Section 3: Our Values */}
-<section id="values" className="bg-white py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-10">Our Values</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
-    
-    <div>
-      <h3 className="text-xl font-semibold text-dark mb-2">Excellence</h3>
-      <p>
-        We are committed to delivering excellence in everything we do, from the quality of our courses to the caliber of our instructors.
-      </p>
-    </div>
+  <div
+    className={`relative z-10 max-w-6xl mx-auto ${
+      isArabic ? "text-right" : "text-left"
+    }`}
+  >
+    {/* Section Title */}
+    <motion.h2
+      className={`text-3xl md:text-4xl font-bold text-primary mb-12 ${
+        isArabic ? "text-center md:text-right" : "text-center md:text-left"
+      }`}
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {t("solutionsSection.title")}
+    </motion.h2>
 
-    <div>
-      <h3 className="text-xl font-semibold text-dark mb-2">Innovation</h3>
-      <p>
-        We embrace innovation and creativity to continually enhance our programs and stay ahead of industry trends.
+    {/* ✅ General Solutions */}
+    <motion.div
+      initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="mb-12"
+    >
+      <h3 className="text-2xl font-semibold text-dark mb-4">
+        {t("solutionsSection.generalTitle")}
+      </h3>
+      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+        {t("solutionsSection.generalIntro")}
       </p>
-    </div>
 
-    <div>
-      <h3 className="text-xl font-semibold text-dark mb-2">Empowerment</h3>
-      <p>
-        We believe in empowering individuals and organizations with the knowledge, skills, and confidence to succeed.
-      </p>
-    </div>
+      <div className="space-y-6">
+        <div className="flex items-start gap-4">
+          <img src={icon1} alt="General Training" className="w-16 h-16 rounded-full shadow-md"
+ />
+          <div>
+            <p className="font-semibold text-dark">
+              {t("solutionsSection.general1Title")}
+            </p>
+            <p className="text-gray-700">{t("solutionsSection.general1Text")}</p>
+          </div>
+        </div>
 
-    <div>
-      <h3 className="text-xl font-semibold text-dark mb-2">Collaboration</h3>
-      <p>
-        We foster a culture of collaboration and teamwork, leveraging the collective expertise of our staff, partners, and clients to achieve mutual success.
+        <div className="flex items-start gap-4">
+          <img src={icon2} alt="Contractual Training" className="w-16 h-16 rounded-full shadow-md"
+ />
+          <div>
+            <p className="font-semibold text-dark">
+              {t("solutionsSection.general2Title")}
+            </p>
+            <p className="text-gray-700">{t("solutionsSection.general2Text")}</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+          <img src={icon3} alt="Specialized Workshops" className="w-16 h-16 rounded-full shadow-md"
+ />
+          <div>
+            <p className="font-semibold text-dark">
+              {t("solutionsSection.general3Title")}
+            </p>
+            <p className="text-gray-700">{t("solutionsSection.general3Text")}</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+          <img src={icon4} alt="Executive Education" className="w-16 h-16 rounded-full shadow-md"
+ />
+          <div>
+            <p className="font-semibold text-dark">
+              {t("solutionsSection.general4Title")}
+            </p>
+            <p className="text-gray-700">{t("solutionsSection.general4Text")}</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+          <img src={icon5} alt="Language Proficiency" className="w-16 h-16 rounded-full shadow-md"
+ />
+          <div>
+            <p className="font-semibold text-dark">
+              {t("solutionsSection.general5Title")}
+            </p>
+            <p className="text-gray-700">{t("solutionsSection.general5Text")}</p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* ✅ Training Solutions */}
+    <motion.div
+      initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <h3 className="text-2xl font-semibold text-dark mb-4">
+        {t("solutionsSection.trainingTitle")}
+      </h3>
+      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+        {t("solutionsSection.trainingIntro")}
       </p>
+      <ul className="list-disc list-inside text-gray-700 space-y-2">
+        <li>{t("solutionsSection.training1")}</li>
+        <li>{t("solutionsSection.training2")}</li>
+        <li>{t("solutionsSection.training3")}</li>
+        <li>{t("solutionsSection.training4")}</li>
+        <li>{t("solutionsSection.training5")}</li>
+        <li>{t("solutionsSection.training6")}</li>
+        <li>{t("solutionsSection.training7")}</li>
+        <li>{t("solutionsSection.training8")}</li>
+        <li>{t("solutionsSection.training9")}</li>
+      </ul>
+    </motion.div>
+  </div>
+</section>
+
+<section
+  id="scholarship"
+  className="relative bg-white py-20 px-6 md:px-16 overflow-hidden"
+>
+  {/* Decorative Background */}
+  <div className="absolute top-0 right-0 w-72 h-72 bg-primary opacity-10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary opacity-5 rounded-full blur-3xl"></div>
+
+  <div
+    className={`relative z-10 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto ${
+      isArabic ? "md:flex-row-reverse" : ""
+    }`}
+  >
+    {/* ✅ Image */}
+    <motion.img
+      src={scholarshipImage}
+      alt="External Scholarship"
+      className="w-full md:w-1/2 rounded-lg shadow-lg"
+      initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    />
+
+    {/* ✅ Text */}
+    <motion.div
+      className={`md:w-1/2 ${isArabic ? "text-right" : "text-left"}`}
+      initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+        {t("scholarshipSection.title")}
+      </h2>
+      <p className="text-gray-700 text-lg leading-relaxed mb-4">
+        {t("scholarshipSection.para1")}
+      </p>
+      <p className="text-gray-700 text-lg leading-relaxed mb-4">
+        {t("scholarshipSection.para2")}
+      </p>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        {t("scholarshipSection.para3")}
+      </p>
+    </motion.div>
+  </div>
+</section>
+
+<section
+  id="customized"
+  className="relative bg-[#f8fbff] py-20 px-6 md:px-16 overflow-hidden"
+>
+  {/* Decorative Background */}
+  <div className="absolute top-0 right-0 w-72 h-72 bg-primary opacity-10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary opacity-5 rounded-full blur-3xl"></div>
+
+  <div
+    className={`relative z-10 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto ${
+      isArabic ? "md:flex-row-reverse" : ""
+    }`}
+  >
+    {/* ✅ Image */}
+    <motion.img
+      src={customizedImage}
+      alt="Customized Programs"
+      className="w-full md:w-1/2 rounded-lg shadow-lg"
+      initial={{ opacity: 0, x: isArabic ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    />
+
+    {/* ✅ Text */}
+    <motion.div
+      className={`md:w-1/2 ${isArabic ? "text-right" : "text-left"}`}
+      initial={{ opacity: 0, x: isArabic ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+        {t("customizedSection.title")}
+      </h2>
+      <p className="text-gray-700 text-lg leading-relaxed">
+        {t("customizedSection.para1")}
+      </p>
+    </motion.div>
+  </div>
+</section>
+
+<section
+  id="contact"
+  className="relative bg-white py-20 px-6 md:px-16 overflow-hidden"
+>
+  {/* Decorative Background */}
+  <div className="absolute top-0 left-0 w-72 h-72 bg-primary opacity-5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary opacity-10 rounded-full blur-3xl"></div>
+
+  <div
+    className={`relative z-10 max-w-4xl mx-auto text-center ${
+      isArabic ? "text-right md:text-right" : "text-center md:text-left"
+    }`}
+  >
+    <motion.h2
+      className={`text-3xl md:text-4xl font-bold text-primary mb-12 ${
+        isArabic ? "md:text-right" : "md:text-left"
+      }`}
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {t("contactSection.title")}
+    </motion.h2>
+
+    <div className="space-y-6">
+      {/* ✅ Phone */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition-all duration-300"
+      >
+        <p className="text-lg font-semibold text-dark mb-2">
+          {t("contactSection.phoneTitle")}
+        </p>
+        <a
+          href="tel:+966555439642"
+          className="text-primary text-lg font-medium hover:underline"
+          style={{ direction: "ltr" }}
+        >
+          00966 555439642
+        </a>
+      </motion.div>
+
+      {/* ✅ Email */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition-all duration-300"
+      >
+        <p className="text-lg font-semibold text-dark mb-2">
+          {t("contactSection.emailTitle")}
+        </p>
+        <a
+          href="mailto:info@artoflang.net"
+          className="text-primary text-lg font-medium hover:underline"
+          style={{ direction: "ltr" }}
+        >
+          info@artoflang.net
+        </a>
+      </motion.div>
+
+      {/* ✅ Website */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition-all duration-300"
+      >
+        <p className="text-lg font-semibold text-dark mb-2">
+          {t("contactSection.websiteTitle")}
+        </p>
+        <a
+          href="https://www.artoflang.net"
+          target="_blank"
+          rel="noreferrer"
+          className="text-primary text-lg font-medium hover:underline"
+        >
+          www.artoflang.net
+        </a>
+      </motion.div>
     </div>
-    
   </div>
 </section>
 
 
-{/* Section 4: Our Clients */}
-<section id="clients" className="bg-light py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-8">Our Clients</h2>
-  <p className="text-gray-700 mb-6">
-    We’ve proudly worked with a range of respected organizations across various industries. Below are some of our clients:
-  </p>
-
-  <div className="flex flex-wrap gap-6 justify-start items-center">
-    {/* Replace these gray boxes with your actual client logos */}
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-  </div>
-</section>
 
 
-{/* Section 5: Our Partners */}
-<section id="partners" className="bg-white py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-8">Our Partners</h2>
-  <p className="text-gray-700 mb-6">
-    We collaborate with leading institutions and organizations to deliver world-class training and development programs.
-  </p>
-
-  <div className="flex flex-wrap gap-6 justify-start items-center">
-    {/* Replace these with your actual partner logos */}
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-    <div className="w-32 h-16 bg-gray-200 rounded-md shadow-sm" />
-  </div>
-</section>
-
-
-{/* Section 6: Our Solutions - General Solutions */}
-<section id="solutions" className="bg-light py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-10">Our Solutions</h2>
-
-  <h3 className="text-2xl font-semibold text-dark mb-6">General Solutions</h3>
-  <p className="text-gray-700 mb-4">
-    At AOL, we provide a range of high-level training solutions tailored to meet diverse needs and objectives, including:
-  </p>
-
-  <div className="space-y-4 text-gray-700">
-
-    <div>
-      <p className="font-semibold text-dark">General Training Programs:</p>
-      <p>
-        Our general training programs encompass a wide array of topics, catering to individuals and organizations seeking foundational knowledge and skills development across various disciplines.
-      </p>
-    </div>
-
-    <div>
-      <p className="font-semibold text-dark">Contractual Training Solutions:</p>
-      <p>
-        We offer contractual training services tailored to the specific requirements of organizations, delivering customized training solutions designed to address their unique challenges and opportunities.
-      </p>
-    </div>
-
-    <div>
-      <p className="font-semibold text-dark">Specialized Workshops:</p>
-      <p>
-        Our specialized workshops focus on niche areas within management, finance, HR, and other domains, providing in-depth insights and practical tools to enhance professional expertise and performance.
-      </p>
-    </div>
-
-    <div>
-      <p className="font-semibold text-dark">Executive Education:</p>
-      <p>
-        Our executive education programs are designed for senior executives and business leaders, offering advanced learning experiences and strategic insights to drive organizational growth and innovation.
-      </p>
-    </div>
-
-    <div>
-      <p className="font-semibold text-dark">Language Proficiency Courses:</p>
-      <p>
-        As language proficiency is crucial for success in today's globalized world, we provide comprehensive English language education programs for individuals and corporate clients, enabling effective communication and collaboration on a global scale.
-      </p>
-    </div>
-
-  </div>
-</section>
-{/* Section 7: Training Solutions */}
-<section className="bg-white py-20 px-6 md:px-24">
-  <h3 className="text-2xl font-semibold text-dark mb-6">Training Solutions</h3>
-  <p className="text-gray-700 mb-4">
-    AOL offers specialized training across a variety of critical domains, designed to enhance skills and performance in both the public and private sectors. Our programs cover:
-  </p>
-
-  <ul className="list-disc list-inside text-gray-700 space-y-2">
-    <li>Leadership And Management</li>
-    <li>Self-Development</li>
-    <li>Executive Secretary</li>
-    <li>Media</li>
-    <li>Organizing Conferences and Events</li>
-    <li>Media and Advertising Campaigns</li>
-    <li>Human Resources</li>
-    <li>Information Technology</li>
-    <li>Public Relations</li>
-  </ul>
-</section>
-{/* Section 8: External Scholarship */}
-<section className="bg-light py-20 px-6 md:px-24">
-  <h3 className="text-2xl font-semibold text-dark mb-6">External Scholarship</h3>
-
-  <p className="text-gray-700 mb-4">
-    AOL is considered one of the institutes specialized in securing language and course acceptance and university admission.
-  </p>
-
-  <p className="text-gray-700 mb-4">
-    We facilitate acceptance of institutes all over the world and study abroad opportunities thanks to our partnerships with the best universities, international educational institutions, institutes, and language schools.
-  </p>
-
-  <p className="text-gray-700">
-    Our experience in dealing with institutes, universities, and educational institutions is based on direct experience — securing admission, housing, insurance, and other matters that concern the student and make their educational journey smoother and more successful.
-  </p>
-</section>
-
-
-{/* Section 9: Customized Programs */}
-<section className="bg-white py-20 px-6 md:px-24">
-  <h3 className="text-2xl font-semibold text-dark mb-6">Customized Programs</h3>
-
-  <p className="text-gray-700">
-    Designing programs according to the client’s needs, AOL provides its services to clients in the government sector, the private sector, and individuals wishing to study the English language and train outside the Kingdom of Saudi Arabia.
-  </p>
-</section>
-
-{/* Section 10: Contact Us */}
-<section id="contact" className="bg-light py-20 px-6 md:px-24">
-  <h2 className="text-3xl font-bold text-primary mb-6">Contact Us</h2>
-
-  <ul className="text-gray-700 text-lg space-y-4">
-    <li>
-      <strong>Phone:</strong>{" "}
-      <a href="tel:+966555439642" className="text-primary hover:underline">
-        00966 555439642
-      </a>
-    </li>
-    <li>
-      <strong>Email:</strong>{" "}
-      <a href="mailto:info@artoflang.net" className="text-primary hover:underline">
-        info@artoflang.net
-      </a>
-    </li>
-    <li>
-      <strong>Website:</strong>{" "}
-      <a href="https://www.artoflang.net" target="_blank" rel="noreferrer" className="text-primary hover:underline">
-        www.artoflang.net
-      </a>
-    </li>
-  </ul>
-</section>
 
     </div>
   );
