@@ -78,8 +78,8 @@ function Footer() {
           </h4>
 
           {/* ✅ Clickable Phone */}
-          <p className="text-gray-600 mb-2" style={{ direction: "ltr", textAlign: isArabic ? "right" : "left" }}>
-            <a
+          <p className="text-gray-600 mb-2 text-center md:text-left" style={{ direction: "ltr" }}>
+          <a
               href="tel:+966555439642"
               className="hover:text-primary underline"
             >
@@ -88,8 +88,8 @@ function Footer() {
           </p>
 
           {/* ✅ Clickable Email */}
-          <p className="text-gray-600 mb-4" style={{ direction: "ltr", textAlign: isArabic ? "right" : "left" }}>
-            <a
+          <p className="text-gray-600 mb-4 text-center md:text-left" style={{ direction: "ltr" }}>
+          <a
               href="mailto:info@artoflang.net"
               className="hover:text-primary underline"
             >
