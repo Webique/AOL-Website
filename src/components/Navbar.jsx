@@ -57,8 +57,7 @@ export default function Navbar() {
           >
             {t("navbar.solutions")}
           </a>
-          <a
-            href="#contact"
+         <a href="#footer"
             className="px-2 hover:text-primary transition-colors duration-300"
           >
             {t("navbar.contact")}

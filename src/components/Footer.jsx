@@ -12,8 +12,8 @@ function Footer() {
   const isArabic = i18n.language === "ar";
 
   return (
-    <footer className="bg-white text-black pt-10 shadow-lg border-t border-gray-200">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+    <footer id="footer" className="bg-white text-black pt-10 shadow-lg border-t border-gray-200">
+      <div className="container mx-auto px-4 flex flex-col md:grid md:grid-cols-3 gap-8 text-center md:text-left">
         {/* Brand */}
         <div className={isArabic ? "text-right md:text-right" : ""}>
           <img
@@ -62,7 +62,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="#contact"
+                href="#footer"
                 className="hover:text-primary transition-colors duration-300"
               >
                 {t("footer.contact")}
@@ -76,46 +76,45 @@ function Footer() {
           <h4 className="text-lg font-semibold mb-4 text-primary">
             {t("footer.contactUs")}
           </h4>
-          {/* ✅ Numbers stay LTR */}
-          <p className="text-gray-600 mb-2" style={{ direction: "ltr", textAlign: isArabic ? "right" : "left" }}>
-            {t("footer.phone")}
-          </p>
-          <p className="text-gray-600 mb-4 ltr">{t("footer.email")}</p>
 
-          {/* ✅ Social Icons always stay on the same side visually */}
+          {/* ✅ Clickable Phone */}
+          <p className="text-gray-600 mb-2" style={{ direction: "ltr", textAlign: isArabic ? "right" : "left" }}>
+            <a
+              href="tel:+966555439642"
+              className="hover:text-primary underline"
+            >
+              📞 00966 555439642
+            </a>
+          </p>
+
+          {/* ✅ Clickable Email */}
+          <p className="text-gray-600 mb-4" style={{ direction: "ltr", textAlign: isArabic ? "right" : "left" }}>
+            <a
+              href="mailto:info@artoflang.net"
+              className="hover:text-primary underline"
+            >
+              ✉️ info@artoflang.net
+            </a>
+          </p>
+
+          {/* Social Icons */}
           <div
-            className={`flex mt-2 ${
-              isArabic
-                ? "justify-end md:justify-end space-x-2 rtl:space-x-reverse"
-                : "justify-center md:justify-start space-x-2"
+            className={`flex justify-center md:justify-start gap-3 ${
+              isArabic ? "md:justify-end" : ""
             }`}
             style={{ direction: "ltr" }}
           >
-
-            <a
-              href="javascript:void(0)"
-              className="p-2 bg-gray-100 text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="javascript:void(0)"
-              className="p-2 bg-gray-100 text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="javascript:void(0)"
-              className="p-2 bg-gray-100 text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="javascript:void(0)"
-              className="p-2 bg-gray-100 text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300"
-            >
-              <FaLinkedinIn />
-            </a>
+            {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map(
+              (Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="p-2 bg-gray-100 text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  <Icon />
+                </a>
+              )
+            )}
           </div>
         </div>
       </div>
